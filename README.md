@@ -3,9 +3,7 @@
 ## My Plugins
 
 ctrlp.vim
-indentLine
-lightline.vim
+airline.vim
 nerdtree
 supertab
-syntastic (jshint)
-vim-monokai
+syntastic (jshint, coffeescript)
