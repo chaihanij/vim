@@ -1,4 +1,3 @@
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: 
 "       Amir Salihefendic
@@ -70,6 +69,8 @@ nmap <leader>w :w!<cr>
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
+" Set paste mode
+set paste
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -149,6 +150,13 @@ set foldcolumn=1
 set number
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Airline Options 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic Options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
@@ -164,9 +172,7 @@ let g:syntastic_check_on_wq = 0
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-if !exists("g:syntax_on")
-    syntax enable
-endif
+syntax enable
 
 " Colorscheme options
 colorscheme desert 
@@ -175,12 +181,13 @@ set background=dark
 
 " Show cursorline 
 set cursorline
+"hi CursorLine   cterm=NONE ctermbg=7 ctermfg=NONE
 hi CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
 
 " Set extra options when running in GUI mode
 if has("gui_running")
     colorscheme monokai 
-    set guifont=Consolas:h14
+    set guifont=Consolas:h16
     set guioptions-=T
     set guioptions-=e
     set guitablabel=%M\ %t
@@ -216,9 +223,9 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -425,7 +432,6 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
-
 
 " Returns true if paste mode is enabled
 function! HasPaste()
